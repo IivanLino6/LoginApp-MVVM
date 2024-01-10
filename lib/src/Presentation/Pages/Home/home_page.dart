@@ -54,28 +54,8 @@ class HomePage extends StatelessWidget {
           ),
         ),
         backgroundColor: const Color.fromARGB(255, 3, 162, 248),
-        body: Stack(
-          children: [
-            Positioned.fill(
-              child: Container(
-                color: const Color.fromARGB(255, 3, 162, 248),
-              ),
-            ),
-            Positioned(
-              top: screenSize * .2,
-              child: Container(
-                height: screenSize,
-                width: screenWidth,
-                decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(35),
-                        topRight: Radius.circular(35)),
-                    color: Colors.white),
-                child: currentTab[vm.currentIndex],
-              ),
-            )
-          ],
-        ),
-        bottomNavigationBar: HomeBottombar(context, vm),); 
+        body: currentTab[vm.currentIndex],
+        bottomNavigationBar: HomeBottombar(context, vm),
+        ); 
   }
 }

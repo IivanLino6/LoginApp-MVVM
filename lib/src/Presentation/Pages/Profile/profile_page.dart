@@ -1,3 +1,4 @@
+import 'package:firebase/src/Presentation/Pages/Profile/Widgets/profile_content.dart';
 import 'package:flutter/material.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -7,7 +8,7 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-       body: Center(child: Text('ProfilePage')),
+       body: ProfileContent(),
     );
   }
 }
