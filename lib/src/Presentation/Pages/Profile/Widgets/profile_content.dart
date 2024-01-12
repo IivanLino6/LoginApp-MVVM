@@ -1,3 +1,6 @@
+import 'package:firebase/src/Presentation/Widgets/RoundBtn.dart';
+import 'package:firebase/src/Presentation/Widgets/customBtn.dart';
+import 'package:firebase/src/Presentation/Widgets/defaultBtn.dart';
 import 'package:flutter/material.dart';
 
 class ProfileContent extends StatelessWidget {
@@ -5,19 +8,31 @@ class ProfileContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     final double screenSize = MediaQuery.of(context).size.height;
     final double screenWidth = MediaQuery.of(context).size.width;
 
     return Stack(
       children: [
+        //Blue background
         Positioned.fill(
           child: Container(
             color: const Color.fromARGB(255, 3, 162, 248),
           ),
         ),
+        //Welcome title
+        const Positioned(
+            left: 0,
+            right: 0,
+            child: Align(
+                alignment: Alignment.center,
+                child: Text('Welcome!',
+                    style: TextStyle(
+                        fontSize: 25,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold)))),
+        //White background
         Positioned(
-          top: screenSize * .2,
+          top: screenSize * .15,
           child: Container(
             height: screenSize,
             width: screenWidth,
@@ -28,14 +43,41 @@ class ProfileContent extends StatelessWidget {
                 color: Colors.white),
           ),
         ),
-        Center(
-          child: Positioned(
-            top: 100,
-            child: Center(child: Text('User Profile', style:TextStyle(fontSize: 20)))),
-        ),
+        //User profile text
+        const Positioned(
+            left: 0,
+            right: 0,
+            top: 200,
+            child: Align(
+                alignment: Alignment.center,
+                child: Text('User Profile',
+                    style: TextStyle(fontSize: 20, color: Colors.black)))),
+        //Email Text
+        const Positioned(
+            left: 0,
+            right: 0,
+            top: 230,
+            child: Align(
+                alignment: Alignment.center,
+                child: Text('Email',
+                    style: TextStyle(fontSize: 12, color: Colors.black54)))),
+        //Image
         Positioned(
-          top: 30,
-          child: Image.asset('asset/user.png',height: 100,colorBlendMode: BlendMode.darken,color: Colors.black12,))
+            left: 0,
+            right: 0,
+            top: 80,
+            child: Align(
+                alignment: Alignment.center,
+                child: Image.asset(
+                  'asset/user.png',
+                  height: 100,
+                ))),
+        //Edit profile button
+        Positioned(
+            top: 650,
+            left: 65,
+            child: DefaultWidget(
+                icon: Icons.edit, onFctn: () {}, txt: 'Edit profile'))
       ],
     );
   }

@@ -9,9 +9,11 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:cloud_firestore/cloud_firestore.dart' as _i5;
-import 'package:firebase/src/D_I/app_module.dart' as _i9;
+import 'package:firebase/src/D_I/app_module.dart' as _i11;
 import 'package:firebase/src/D_I/firebase_service.dart' as _i7;
+import 'package:firebase/src/Data/Repository/user_repository_impl.dart' as _i10;
 import 'package:firebase/src/Domain/Repository/auth_repository.dart' as _i3;
+import 'package:firebase/src/Domain/Repository/user_repository.dart' as _i9;
 import 'package:firebase/src/Domain/UsesCases/Auth/auth_usecase.dart' as _i4;
 import 'package:firebase/src/Domain/UsesCases/Auth/register_usecase.dart'
     as _i8;
@@ -43,8 +45,9 @@ extension GetItInjectableX on _i1.GetIt {
     );
     gh.factory<_i8.RegisterUseCase>(
         () => _i8.RegisterUseCase(gh<_i3.AuthRepository>()));
+    gh.factory<_i9.UsersRepository>(() => _i10.UserRepositoryImplementation());
     return this;
   }
 }
 
-class _$AppModule extends _i9.AppModule {}
+class _$AppModule extends _i11.AppModule {}
