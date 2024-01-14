@@ -5,14 +5,14 @@ import 'package:firebase/src/Domain/Utils/resources.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:injectable/injectable.dart';
 
-@Injectable(as: UsersRepository)
-class UserRepositoryImpl implements UsersRepository {
+//@Injectable(as:UserRepository )
+class UserRepositoryImpl implements UserRepository {
   CollectionReference _userRef;
 
   UserRepositoryImpl(this._userRef);
 
   @override
-  Stream<Resource<UserData>> getUserID(String id) {
+  Stream<Resource<UserData>> getUserByID(String id) {
     try {
       final data = _userRef.doc(id).snapshots(includeMetadataChanges: true);
       final dataMap = data.map((doc) =>

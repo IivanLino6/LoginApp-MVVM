@@ -1,10 +1,13 @@
+import 'package:firebase/src/Domain/Models/user_data.dart';
+import 'package:firebase/src/Presentation/Pages/Profile/Widgets/profile_viewmodel.dart';
 import 'package:firebase/src/Presentation/Widgets/RoundBtn.dart';
 import 'package:firebase/src/Presentation/Widgets/customBtn.dart';
 import 'package:firebase/src/Presentation/Widgets/defaultBtn.dart';
 import 'package:flutter/material.dart';
 
 class ProfileContent extends StatelessWidget {
-  const ProfileContent({super.key});
+  UserData userData;
+  ProfileContent(this.userData);
 
   @override
   Widget build(BuildContext context) {
@@ -44,22 +47,23 @@ class ProfileContent extends StatelessWidget {
           ),
         ),
         //User profile text
-        const Positioned(
+         Positioned(
             left: 0,
             right: 0,
             top: 200,
             child: Align(
                 alignment: Alignment.center,
-                child: Text('User Profile',
+                child: Text(userData.username,
                     style: TextStyle(fontSize: 20, color: Colors.black)))),
         //Email Text
-        const Positioned(
+         Positioned(
             left: 0,
             right: 0,
             top: 230,
             child: Align(
+              
                 alignment: Alignment.center,
-                child: Text('Email',
+                child: Text(userData.email,
                     style: TextStyle(fontSize: 12, color: Colors.black54)))),
         //Image
         Positioned(

@@ -36,11 +36,12 @@ abstract class AppModule {
   @injectable
   CollectionReference get usersCollection =>
       firebaseFirestore.collection("Users");
-
+ 
+  @Environment('Repositories')
   @injectable
   AuthRepository get authRepository =>
       AuthRepositoryImpl(firebaseAuth, usersCollection);
-
+  
   @injectable
   AuthUseCases get authUseCases => AuthUseCases(
       login: LoginUseCase(authRepository),
@@ -49,11 +50,14 @@ abstract class AppModule {
       ),
       getUser: UserSessionUseCase(authRepository),
       logout: LogoutUseCase(authRepository));
-
+  
+  @Environment('repositories')
   @injectable
-  UsersRepository get userRepository => UserRepositoryImpl(usersCollection);
+  UserRepository get userRepository => UserRepositoryImpl(usersCollection);
 
+  @Environment('use_cases')
   @injectable
   UserUseCase get userUseCase =>
       UserUseCase(getByID: GetUserbyID(userRepository));
 }
+

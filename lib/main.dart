@@ -1,11 +1,13 @@
 import 'package:firebase/firebase_options.dart';
 import 'package:firebase/injection.dart';
 import 'package:firebase/src/Domain/UsesCases/Auth/auth_usecase.dart';
+import 'package:firebase/src/Domain/UsesCases/Users/users_usercase.dart';
 import 'package:firebase/src/Presentation/Pages/Auth/Login/LoginViewModel.dart';
 import 'package:firebase/src/Presentation/Pages/Auth/Register/RegisterPage.dart';
 import 'package:firebase/src/Presentation/Pages/Auth/Register/register_viewmodel.dart';
 import 'package:firebase/src/Presentation/Pages/Home/home_page.dart';
 import 'package:firebase/src/Presentation/Pages/Home/home_viewmodel.dart';
+import 'package:firebase/src/Presentation/Pages/Profile/Widgets/profile_viewmodel.dart';
 import 'package:firebase/src/Presentation/Pages/firebaseScreen.dart';
 import 'package:firebase/src/Presentation/Pages/Auth/Login/LoginPage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -30,7 +32,8 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (context) => LoginViewModel(locator<AuthUseCases>())),
         ChangeNotifierProvider(create: (context) => RegisterViewModel(locator<AuthUseCases>())),
-        ChangeNotifierProvider(create: (context) => HomeViewModel(locator<AuthUseCases>()))
+        ChangeNotifierProvider(create: (context) => HomeViewModel(locator<AuthUseCases>())),
+         ChangeNotifierProvider(create: (context) => ProfileViewModel(locator<UserUseCase>(),locator<AuthUseCases>()))
       ],
       child: MaterialApp(
           debugShowCheckedModeBanner: false,
