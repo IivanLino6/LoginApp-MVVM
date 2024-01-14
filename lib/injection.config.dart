@@ -14,7 +14,7 @@ import 'package:firebase/src/D_I/firebase_service.dart' as _i7;
 import 'package:firebase/src/Domain/Repository/auth_repository.dart' as _i3;
 import 'package:firebase/src/Domain/Repository/user_repository.dart' as _i8;
 import 'package:firebase/src/Domain/UsesCases/Auth/auth_usecase.dart' as _i4;
-import 'package:firebase/src/Domain/UsesCases/Users/users_usercase.dart' as _i9;
+import 'package:firebase/src/Domain/UsesCases/users/users_usercase.dart' as _i9;
 import 'package:firebase_auth/firebase_auth.dart' as _i6;
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
