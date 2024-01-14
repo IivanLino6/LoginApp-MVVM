@@ -4,9 +4,9 @@ import 'package:firebase/src/Domain/Utils/resources.dart';
 import 'package:injectable/injectable.dart';
 
 //@Injectable()
-class GetUserbyID {
+class GetUserByID {
   UserRepository _repository;
-  GetUserbyID(this._repository);
+  GetUserByID(this._repository);
 
   Stream<Resource<UserData>> launch(String id) => _repository.getUserByID(id);
 }

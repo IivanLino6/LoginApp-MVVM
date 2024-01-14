@@ -21,7 +21,6 @@ import 'package:injectable/injectable.dart' as _i2;
 
 const String _Repositories = 'Repositories';
 const String _repositories = 'repositories';
-const String _use_cases = 'use_cases';
 
 extension GetItInjectableX on _i1.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt
@@ -52,10 +51,7 @@ extension GetItInjectableX on _i1.GetIt {
       () => appModule.userRepository,
       registerFor: {_repositories},
     );
-    gh.factory<_i9.UserUseCase>(
-      () => appModule.userUseCase,
-      registerFor: {_use_cases},
-    );
+    gh.factory<_i9.UserUseCase>(() => appModule.userUseCase);
     return this;
   }
 }

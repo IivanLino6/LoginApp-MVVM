@@ -4,7 +4,7 @@ import 'package:injectable/injectable.dart';
 
 //@Injectable()
 class UserUseCase {
-  GetUserbyID getByID;
+  GetUserByID getByID;
 
   UserUseCase({ required this.getByID});
 }

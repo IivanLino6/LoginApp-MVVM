@@ -15,7 +15,7 @@ class ProfilePage extends StatelessWidget {
         body: StreamBuilder(
       stream: vm.getUserByID(),
       builder: ((context, snapshot) {
-        if (snapshot.hasData) {
+        if (!snapshot.hasData) {
           return Center(child: CircularProgressIndicator());
         }
         final response = snapshot.data;

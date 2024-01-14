@@ -42,12 +42,11 @@ abstract class AppModule {
   AuthRepository get authRepository =>
       AuthRepositoryImpl(firebaseAuth, usersCollection);
   
+  //@Environment('use_cases')
   @injectable
   AuthUseCases get authUseCases => AuthUseCases(
       login: LoginUseCase(authRepository),
-      register: RegisterUseCase(
-        authRepository,
-      ),
+      register: RegisterUseCase(authRepository),
       getUser: UserSessionUseCase(authRepository),
       logout: LogoutUseCase(authRepository));
   
@@ -55,9 +54,8 @@ abstract class AppModule {
   @injectable
   UserRepository get userRepository => UserRepositoryImpl(usersCollection);
 
-  @Environment('use_cases')
+  //@Environment('use_cases')
   @injectable
-  UserUseCase get userUseCase =>
-      UserUseCase(getByID: GetUserbyID(userRepository));
+  UserUseCase get userUseCase =>UserUseCase(getByID: GetUserByID(userRepository));
 }
 
