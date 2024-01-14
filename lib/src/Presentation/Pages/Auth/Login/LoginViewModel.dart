@@ -1,4 +1,4 @@
-import 'package:firebase/src/Domain/UsesCases/Auth/auth_usecase.dart';
+import 'package:firebase/src/Domain/UseCases/Auth/auth_usecase.dart';
 import 'package:firebase/src/Domain/Utils/resources.dart';
 import 'package:firebase/src/Presentation/Utils/validation_item.dart';
 import 'package:firebase/src/Presentation/Pages/Auth/Login/loginState.dart';

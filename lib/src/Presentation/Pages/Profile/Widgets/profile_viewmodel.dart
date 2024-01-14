@@ -1,6 +1,6 @@
 import 'package:firebase/src/Domain/Models/user_data.dart';
-import 'package:firebase/src/Domain/UsesCases/Auth/auth_usecase.dart';
-import 'package:firebase/src/Domain/UsesCases/users/users_usercase.dart';
+import 'package:firebase/src/Domain/UseCases/Auth/auth_usecase.dart';
+import 'package:firebase/src/Domain/UseCases/Users/users_usercase.dart';
 import 'package:firebase/src/Domain/Utils/resources.dart';
 import 'package:flutter/material.dart';
 
