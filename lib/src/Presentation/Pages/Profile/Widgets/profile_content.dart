@@ -13,7 +13,7 @@ class ProfileContent extends StatelessWidget {
   Widget build(BuildContext context) {
     final double screenSize = MediaQuery.of(context).size.height;
     final double screenWidth = MediaQuery.of(context).size.width;
-
+    
     return Stack(
       children: [
         //Blue background
@@ -47,7 +47,7 @@ class ProfileContent extends StatelessWidget {
           ),
         ),
         //User profile text
-         Positioned(
+        Positioned(
             left: 0,
             right: 0,
             top: 200,
@@ -56,12 +56,11 @@ class ProfileContent extends StatelessWidget {
                 child: Text(userData.username,
                     style: TextStyle(fontSize: 20, color: Colors.black)))),
         //Email Text
-         Positioned(
+        Positioned(
             left: 0,
             right: 0,
             top: 230,
             child: Align(
-              
                 alignment: Alignment.center,
                 child: Text(userData.email,
                     style: TextStyle(fontSize: 12, color: Colors.black54)))),
@@ -81,7 +80,11 @@ class ProfileContent extends StatelessWidget {
             top: 650,
             left: 65,
             child: DefaultWidget(
-                icon: Icons.edit, onFctn: () {}, txt: 'Edit profile'))
+                icon: Icons.edit,
+                onFctn: () {
+                  Navigator.pushNamed(context, 'Profile/Update');
+                },
+                txt: 'Edit profile'))
       ],
     );
   }

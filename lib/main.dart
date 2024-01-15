@@ -8,6 +8,7 @@ import 'package:firebase/src/Presentation/Pages/Auth/Register/register_viewmodel
 import 'package:firebase/src/Presentation/Pages/Home/home_page.dart';
 import 'package:firebase/src/Presentation/Pages/Home/home_viewmodel.dart';
 import 'package:firebase/src/Presentation/Pages/Profile/Widgets/profile_viewmodel.dart';
+import 'package:firebase/src/Presentation/Pages/Profile/update/profile_update_page.dart';
 import 'package:firebase/src/Presentation/Pages/firebaseScreen.dart';
 import 'package:firebase/src/Presentation/Pages/Auth/Login/LoginPage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -47,6 +48,7 @@ class MyApp extends StatelessWidget {
             'login': (BuildContext context) => const LoginPage(),
             'Register': (BuildContext context) => const RegisterPage(),
             'Home': (BuildContext context) => const HomePage(),
+            'Profile/Update': (BuildContext context) => const ProfileUpdatePage(),
           }),
     );
   }
