@@ -11,8 +11,7 @@ class ProfileUpdateContent extends StatelessWidget {
     final double screenSize = MediaQuery.of(context).size.height;
     final double screenWidth = MediaQuery.of(context).size.width;
 
-    return 
-    Stack(
+    return Stack(
       children: [
         //Blue background
         Positioned.fill(
@@ -45,7 +44,22 @@ class ProfileUpdateContent extends StatelessWidget {
                 color: Colors.white),
           ),
         ),
-        DefaultTextField(label: label, icon: icon, onChanged: onChanged),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: IconButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: const Icon(Icons.arrow_back_ios,color: Colors.white,size: 30,),
+               ),
+        ),
+        Container(
+          margin: const EdgeInsets.only(left: 20, right: 20, top: 40),
+          child: DefaultTextField(
+              label: 'Username',
+              icon: Icons.person_2_outlined,
+              onChanged: (value) {}),
+        ),
         //Edit profile button
         Positioned(
             top: 850,

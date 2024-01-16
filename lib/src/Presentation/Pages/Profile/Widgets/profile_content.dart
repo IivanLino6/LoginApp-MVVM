@@ -82,7 +82,10 @@ class ProfileContent extends StatelessWidget {
             child: DefaultWidget(
                 icon: Icons.edit,
                 onFctn: () {
-                  Navigator.pushNamed(context, 'Profile/Update');
+                  Navigator.pushNamed(
+                    context, 'Profile/Update',
+                    arguments:userData );
+
                 },
                 txt: 'Edit profile'))
       ],
