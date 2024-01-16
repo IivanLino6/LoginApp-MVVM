@@ -1,48 +1,52 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
-class DefaultTextField extends StatelessWidget {
+class DefaultFormField extends StatefulWidget {
+  final String txt;
+  final Function(String) onChanged;
 
-  String label;
-  String error;
-  String initialValue;
-  IconData icon;
-  bool obscureText;
-  Function(String text) onChanged;
-
-  DefaultTextField({
-    required this.label,
-    required this.icon,    
+  const DefaultFormField({
+    super.key,
+    required this.txt,
     required this.onChanged,
-    this.error = '',
-    this.initialValue = '',
-    this.obscureText = false,        
   });
 
   @override
-  Widget build(BuildContext context) {    
-    return TextFormField(      
-      initialValue: initialValue,
-      onChanged: (value) {
-        onChanged(value);
-      },
+  State<DefaultFormField> createState() => _TextCaptionState();
+}
+
+class _TextCaptionState extends State<DefaultFormField> {
+  //Crea variable de tipo controlador para acceder a las propiedades del field
+  final TextEditingController _txtController = TextEditingController();
+
+  final focusNode = FocusNode();
+
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      controller: _txtController,
       decoration: InputDecoration(
-        label: Text(
-          label,
-          style: TextStyle(
-            color: Colors.white
-          ),
-        ),
-        errorText: error,   
-        suffixIcon: Icon(
-          icon,
-          color: Colors.white,
-        )     
-      ),
-      style: TextStyle(
-        color: Colors.white
-      ),
-      obscureText: obscureText,
-      
+          labelText: widget.txt,
+          hintText: 'Write your ${widget.txt}',
+          enabledBorder: UnderlineInputBorder(
+              //Crea una variable para asginar propiedades de decoracion  al TextField
+              borderSide: const BorderSide(color: Colors.white),
+              borderRadius: BorderRadius.circular(20)),
+          focusedBorder: UnderlineInputBorder(
+              //Crea una variable para asginar propiedades de decoracion  al TextField
+              borderSide: const BorderSide(color: Colors.white),
+              borderRadius: BorderRadius.circular(20)),
+          filled: true,
+          fillColor: Colors.grey[200],
+          contentPadding:
+              const EdgeInsets.symmetric(vertical: 5, horizontal: 10)),
+      onChanged: (value) {
+        widget.onChanged(value);
+      },
+      onTapOutside: (event) {
+        //Cierra el teclado si el usuario presiona afuera
+        focusNode.unfocus();
+      },
     );
   }
 }

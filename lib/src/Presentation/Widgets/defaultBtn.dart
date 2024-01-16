@@ -4,6 +4,8 @@ class DefaultWidget extends StatelessWidget {
   final String txt;
   final VoidCallback onFctn;
   final IconData icon;
+
+  
   const DefaultWidget({
     super.key,
     required this.txt,
