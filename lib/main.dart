@@ -9,6 +9,7 @@ import 'package:firebase/src/Presentation/Pages/Home/home_page.dart';
 import 'package:firebase/src/Presentation/Pages/Home/home_viewmodel.dart';
 import 'package:firebase/src/Presentation/Pages/Profile/Widgets/profile_viewmodel.dart';
 import 'package:firebase/src/Presentation/Pages/Profile/update/profile_update_page.dart';
+import 'package:firebase/src/Presentation/Pages/Profile/update/profile_update_viewmodel.dart';
 import 'package:firebase/src/Presentation/Pages/firebaseScreen.dart';
 import 'package:firebase/src/Presentation/Pages/Auth/Login/LoginPage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -34,7 +35,8 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => LoginViewModel(locator<AuthUseCases>())),
         ChangeNotifierProvider(create: (context) => RegisterViewModel(locator<AuthUseCases>())),
         ChangeNotifierProvider(create: (context) => HomeViewModel(locator<AuthUseCases>())),
-         ChangeNotifierProvider(create: (context) => ProfileViewModel(locator<UserUseCase>(),locator<AuthUseCases>()))
+        ChangeNotifierProvider(create: (context) => ProfileViewModel(locator<UserUseCase>(),locator<AuthUseCases>())),
+        ChangeNotifierProvider(create: (context) => ProfileUpdateViewModel(locator<UserUseCase>())),
       ],
       child: MaterialApp(
           debugShowCheckedModeBanner: false,

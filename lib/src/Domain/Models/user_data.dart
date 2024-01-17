@@ -9,38 +9,42 @@ UserData userFromJson(String str) => UserData.fromJson(json.decode(str));
 String userToJson(UserData data) => json.encode(data.toJson());
 
 class UserData {
-    String id;
-    String username;
-    String email;
-    String password;
-    String age;
-    String phone;
+  String id;
+  String username;
+  String email;
+  String password;
+  String age;
+  String phone;
+  String image;
 
-    UserData({
-        this.id = "",
-        this.username = "",
-        this.email = "",
-        this.password = "",
-        this.age = "",
-        this.phone = "",
-    });
+  UserData({
+    this.id = "",
+    this.username = "",
+    this.email = "",
+    this.password = "",
+    this.age = "",
+    this.phone = "",
+    this.image = ""
+  });
 
-    factory UserData.fromJson(Map<String, dynamic> json) => UserData(
+  factory UserData.fromJson(Map<String, dynamic> json) => UserData(
         id: json["id"] ?? '',
         username: json["username"] ?? '',
         email: json["email"] ?? '',
         password: json["Password"] ?? '',
         age: json["Birthay"] ?? '',
         phone: json["Phone"] ?? '',
-    );
+        image: json["image"] ?? ''
+      );
 
-    Map<String, dynamic> toJson() => {
-      //Si no quieres agregar algun de los siguiente parametros simplemente borrar
+  Map<String, dynamic> toJson() => {
+        //Si no quieres agregar algun de los siguiente parametros simplemente borrar
         "id": id,
         "username": username,
         "email": email,
         "Password": password,
         "age": age,
         "Phone": phone,
-    };
+        "image": image
+      };
 }

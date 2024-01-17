@@ -4,12 +4,15 @@ import 'package:flutter/services.dart';
 class DefaultFormField extends StatefulWidget {
   final String txt;
   final Function(String) onChanged;
+  final String initValue;
+  final String error;
 
-  const DefaultFormField({
-    super.key,
-    required this.txt,
-    required this.onChanged,
-  });
+  const DefaultFormField(
+      {super.key,
+      required this.txt,
+      required this.onChanged,
+      this.initValue = '',
+      this.error = ''});
 
   @override
   State<DefaultFormField> createState() => _TextCaptionState();
@@ -24,6 +27,7 @@ class _TextCaptionState extends State<DefaultFormField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      initialValue: widget.initValue,
       controller: _txtController,
       decoration: InputDecoration(
           labelText: widget.txt,
